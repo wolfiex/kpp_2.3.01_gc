@@ -34,7 +34,7 @@ include ../Makefile.defs
 
 BISON=bison -d 
 CFLAGS=`cat ../cflags`
-CC = icc
+#CC = icc
 
 all: kpp
 
