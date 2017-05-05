@@ -149,7 +149,7 @@ int n;
 
   n = sscanf( cmd, "%d", &initNr);
   if( n != 1 )
-    ScanError("Bad number of species to initialize <%s>", cmd);
+    ScanError("\033[91m\nBad number of species to initialize <%s>\033[0m\n", cmd);
 }
 
 void DefineXGrid( char *cmd )
@@ -159,7 +159,7 @@ int n;
   xNr = 1;
   n = sscanf( cmd, "%d", &xNr);
   if( n != 1 )
-    ScanError("Bad X grid number <%s>", cmd);
+    ScanError("\033[91m\nBad X grid number <%s>\033[0m\n", cmd);
 }
 
 void DefineYGrid( char *cmd )
@@ -169,7 +169,7 @@ int n;
   yNr = 1;
   n = sscanf( cmd, "%d", &yNr);
   if( n != 1 )
-    ScanError("Bad Y grid number <%s>", cmd);
+    ScanError("\033[91m\nBad Y grid number <%s>\033[0m\n", cmd);
 }
 
 void DefineZGrid( char *cmd )
@@ -179,7 +179,7 @@ int n;
   zNr = 1;
   n = sscanf( cmd, "%d", &zNr);
   if( n != 1 )
-    ScanError("Bad Z grid number <%s>", cmd);
+    ScanError("\033[91m\nBad Z grid number <%s>\033[0m\n", cmd);
 }
 
 void CmdFunction( char *cmd )
@@ -192,7 +192,7 @@ void CmdFunction( char *cmd )
     useAggregate = 0;
     return;
   }
-  ScanError("'%s': Unknown parameter for #FUNCTION [AGGREGATE|SPLIT]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #FUNCTION [AGGREGATE|SPLIT]\033[0m\n", cmd );
 }
 
 void CmdDeclareValues( char *cmd )
@@ -205,7 +205,7 @@ void CmdDeclareValues( char *cmd )
     useDeclareValues = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #DECLARE [SYMBOL|VALUE]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #DECLARE [SYMBOL|VALUE]\033[0m\n", cmd );
 }
 
 void CmdJacobian( char *cmd )
@@ -230,11 +230,11 @@ void CmdJacobian( char *cmd )
     useJacSparse = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #JACOBIAN [OFF|FULL|SPARSE_LU_ROW|SPARSE_ROW]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #JACOBIAN [OFF|FULL|SPARSE_LU_ROW|SPARSE_ROW]\033[0m\n", cmd );
 }
 
 void SparseData( char *cmd ) {
-  ScanError("Deprecated use of #SPARSEDATA %s: see #JACOBIAN for equivalent functionality", cmd );
+  ScanError("\033[91m\nDeprecated use of #SPARSEDATA %s: see #JACOBIAN for equivalent functionality\033[0m\n", cmd );
 }
 
 void CmdHessian( char *cmd )
@@ -247,7 +247,7 @@ void CmdHessian( char *cmd )
     useHessian = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #HESSIAN [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #HESSIAN [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdStoicmat( char *cmd )
@@ -260,7 +260,7 @@ void CmdStoicmat( char *cmd )
     useStoicmat = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #STOICMAT [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #STOICMAT [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdDouble( char *cmd )
@@ -273,7 +273,7 @@ void CmdDouble( char *cmd )
     useDouble = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #DOUBLE [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #DOUBLE [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdReorder( char *cmd )
@@ -286,7 +286,7 @@ void CmdReorder( char *cmd )
     useReorder = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #REORDER [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #REORDER [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdMex( char *cmd )
@@ -299,7 +299,7 @@ void CmdMex( char *cmd )
     useMex = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #MEX [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #MEX [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdDummyindex( char *cmd )
@@ -312,7 +312,7 @@ void CmdDummyindex( char *cmd )
     useDummyindex = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #DUMMYINDEX [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #DUMMYINDEX [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdEqntags( char *cmd )
@@ -325,12 +325,12 @@ void CmdEqntags( char *cmd )
     useEqntags = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #EQNTAGS [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #EQNTAGS [ON|OFF]\033[0m\n", cmd );
 }
 
 void CmdUse( char *cmd )
 {
-  ScanError("Deprecated command '#USE %s';\nReplace with '#LANGUAGE %s'.",cmd,cmd );
+  ScanError("\033[91m\nDeprecated command '#USE %s';\nReplace with '#LANGUAGE %s'.\033[0m\n",cmd,cmd );
 }
 
 
@@ -341,7 +341,7 @@ void CmdLanguage( char *cmd )
     return;
   }
   if( EqNoCase( cmd, "FORTRAN" ) ) {
-    ScanWarning("Fortran version not specified in '#LANGUAGE %s'. Will use Fortran 77.", cmd);
+    ScanWarning("\033[93m\nFortran version not specified in '#LANGUAGE %s'. Will use Fortran 77.\033[0m\n", cmd);
     useLang = F77_LANG;
     return;
   }
@@ -357,7 +357,7 @@ void CmdLanguage( char *cmd )
     useLang = C_LANG;
     return;
   }
-  ScanError("'%s': Unknown parameter for #LANGUAGE [Fortran77|Fortran90|C|Matlab]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #LANGUAGE [Fortran77|Fortran90|C|Matlab]\033[0m\n", cmd );
 }
 
 void CmdStochastic( char *cmd )
@@ -370,7 +370,7 @@ void CmdStochastic( char *cmd )
     useStochastic = 0;
     return;
   }
-  ScanError("'%s': Unknown parameter for #STOCHASTIC [OFF|ON]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #STOCHASTIC [OFF|ON]\033[0m\n", cmd );
 }
 
 void CmdIntegrator( char *cmd )
@@ -398,7 +398,7 @@ void CmdFlux( char *cmd )
     doFlux = 1;
     return;
   }
-  ScanError("'%s': Unknown parameter for #FLUX [ON|OFF]", cmd );
+  ScanError("\033[91m\n'%s': Unknown parameter for #FLUX [ON|OFF]\033[0m\n", cmd );
 }
 
 int FindAtom( char *atname )
@@ -418,7 +418,7 @@ int code;
 
   code = FindAtom( atname );
   if ( code >= 0 ) {
-    ScanError("Multiple declaration for atom %s.", atname );
+    ScanError("\033[91m\nMultiple declaration for atom %s.\033[0m\n", atname );
     return;
   }
   if( AtomNr >= MAX_ATNR ) {
@@ -438,7 +438,7 @@ int code;
 
   code = FindAtom( atname );
   if ( code < 0 ) {
-    ScanError("Undefined atom %s.", atname );
+    ScanError("\033[91m\nUndefined atom %s.\033[0m\n", atname );
     return;
   }
   AtomTable[ code ].check = type;
@@ -461,7 +461,7 @@ int code;
 
   code = FindAtom( atname );
   if ( code < 0 ) {
-    ScanError("Undefined atom %s.", atname );
+    ScanError("\033[91m\nUndefined atom %s.\033[0m\n", atname );
     return;
   }
   crtAtoms[ crtAtomNr ].code = (unsigned char)code;
@@ -517,7 +517,7 @@ int code;
 
   code = FindSpecies( spname );
   if ( code >= 0 ) {
-    ScanError("Multiple declaration for species %s.", spname );
+    ScanError("\033[91m\nMultiple declaration for species %s.\033[0m\n", spname );
     return;
   }
   if( SpeciesNr >= MAX_SPECIES ) {
@@ -553,7 +553,7 @@ int i;
 
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
   SpeciesTable[ code ].type = type; 
@@ -567,7 +567,7 @@ double cf;
   if( EqNoCase( spname, "CFACTOR" ) ) {
     code = sscanf( spval, "%lg", &cf );
     if( code != 1 ) {
-      ScanWarning("Invalid CFACTOR value: %s", spval);
+      ScanWarning("\033[93m\nInvalid CFACTOR value: %s\033[0m\n", spval);
       return;
     }
     cfactor = cf;
@@ -593,7 +593,7 @@ double cf;
   
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return; 
   }     
   strcpy( SpeciesTable[ code ].ival, spval );  
@@ -677,7 +677,7 @@ int err;
   } 
    
   if ( err ) 
-    ScanWarning( "(eqn %d) Atom balance mismatch for:%s.", EqnNr+1, errmsg );    
+    ScanWarning("\033[93m\n(eqn %d) Atom balance mismatch for:%s.\033[0m\n", EqnNr+1, errmsg );    
         
   for( j = 0; j < SpcNr; j++ )
     if( Stoich_Left[j][EqnNr] != 0 )
@@ -694,11 +694,11 @@ int err;
     }
     if ( equal ) {
       if( r1 == r2 )
-        ScanWarning( "Duplicate equation: "
-        	   " (eqn<%d> = eqn<%d> )", i+1, EqnNr+1 );
+        ScanWarning("\033[93m\nDuplicate equation: "
+        	   " (eqn<%d> = eqn<%d> )\033[0m\n", i+1, EqnNr+1 );
       else
-	ScanWarning( "Linearly dependent equations: "
-		   "( %.0f eqn<%d> = %.0f eqn<%d> )",
+	ScanWarning("\033[93m\nLinearly dependent equations: "
+		   "( %.0f eqn<%d> = %.0f eqn<%d> )\033[0m\n",
 		   r1, i+1, r2, EqnNr+1 );
       break;
     }
@@ -733,7 +733,7 @@ char eqNr[40]; /* msl_270416 */
 
   code = FindSpecies( spstr );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spstr );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spstr );
     return;
   }
   
@@ -769,7 +769,7 @@ int code;
   
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
 
@@ -783,7 +783,7 @@ int code;
   
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
 
@@ -797,7 +797,7 @@ int code;
   
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
 
@@ -828,7 +828,7 @@ int code;
     return;
   }
     
-  ScanError("Undefined species or atom %s.", spname );
+  ScanError("\033[91m\nUndefined species or atom %s.\033[0m\n", spname );
 }
 
 void AddTransport( char *spname )
@@ -837,7 +837,7 @@ int code;
   
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
 
@@ -914,7 +914,7 @@ int totallength; /* mz_rs_20050607 */
   else
     totallength = strlen( s );
   if (totallength>MAX_INLINE)
-    ScanError("\nInline code for %s is too long (%d>%d).\nIncrease MAX_INLINE in scan.h and recompile kpp!", 
+    ScanError("\033[91m\n\nInline code for %s is too long (%d>%d).\nIncrease MAX_INLINE in scan.h and recompile kpp!\033[0m\n", 
               ctx, totallength, MAX_INLINE);    
   /*  mz_rs_20050607- */
 
@@ -985,7 +985,7 @@ char buf[40];
  
   code = FindSpecies( spname );
   if ( code < 0 ) {
-    ScanError("Undefined species %s.", spname );
+    ScanError("\033[91m\nUndefined species %s.\033[0m\n", spname );
     return;
   }
   
@@ -1074,7 +1074,7 @@ int code;
  
   code = FindSpecies( mbrname );
   if ( code < 0 ) {
-    ScanError("Undefined member %s.", mbrname );
+    ScanError("\033[91m\nUndefined member %s.\033[0m\n", mbrname );
     return;
   }
 
@@ -1156,7 +1156,7 @@ void DeclareFamily( char *famname )
   /* -- Scan for duplicate families first -- */
   code = FindFamily( famname );
   if ( code >= 0 ) {
-    ScanError("Multiple declaration for family %s.", famname );
+    ScanError("\033[91m\nMultiple declaration for family %s.\033[0m\n", famname );
     return;
   }
 
@@ -1171,7 +1171,7 @@ void DeclareFamily( char *famname )
   } else if ( prefix == 'L' ){
     type = LOSS_FAM;
   } else {
-    ScanError( "%s must be declared as a P/L term with appropriate suffix (P,L).", famname );
+    ScanError("\033[91m\n%s must be declared as a P/L term with appropriate suffix (P,L).\033[0m\n", famname );
     return;
   }
     

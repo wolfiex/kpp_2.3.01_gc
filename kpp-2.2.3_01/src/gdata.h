@@ -36,8 +36,8 @@
 
 #include <stdio.h>
 
-#define MAX_EQN         800
-#define MAX_SPECIES     800
+#define MAX_EQN         200000
+#define MAX_SPECIES     10000
 #define MAX_SPNAME       30
 #define MAX_IVAL         40
 /* MAX_EQNTAG = max length of equation ID in eqn file */
@@ -51,7 +51,7 @@
 #define MAX_FILES	 20
 #define MAX_FAMILIES	 50
 #define MAX_MEMBERS 	150
-#define MAX_EQNLEN      100
+#define MAX_EQNLEN      200
 
 #define NO_CODE 	-1
 #define max( x, y ) (x) > (y) ? (x) : (y)
