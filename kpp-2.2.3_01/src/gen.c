@@ -773,7 +773,7 @@ int FLUX_VAR;
 
   if( VarNr == 0 ) return;
   
-  /*  if (useLang != MATLAB_LANG)  /* Matlab generates an additional file per function */
+  /*  if (useLang != MATLAB_LANG)   Matlab generates an additional file per function */
   /*     UseFile( functionFile ); */
 
   FLUX_VAR = DefFnc( "Flux", 3, "calculate production & loss terms from reaction flux");
@@ -2642,6 +2642,11 @@ int INITVAL;
   Declare( X );
 
   NewLines(1);
+  F90_Inline("VAR(:)=0." );
+  NewLines(1);
+  F90_Inline("FIX(:)=0." );
+  
+  /*
   WriteAssign( varTable[CFACTOR]->name , ascid( (double)cfactor ) );
   NewLines(1);
   
@@ -2670,7 +2675,7 @@ int INITVAL;
   F77_Inline("      END DO" );
   F90_Inline("  END DO" );
   MATLAB_Inline("   end" );
-
+  */
 
   NewLines(1);
 
