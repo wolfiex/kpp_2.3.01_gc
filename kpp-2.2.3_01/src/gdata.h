@@ -36,14 +36,14 @@
 
 #include <stdio.h>
 
-#define MAX_EQN         800
-#define MAX_SPECIES     800
+#define MAX_EQN         200000
+#define MAX_SPECIES     10000
 #define MAX_SPNAME       30
 #define MAX_IVAL         40
 /* MAX_EQNTAG = max length of equation ID in eqn file */
 #define MAX_EQNTAG       12
 /* MAX_K = max length of rate expression in eqn file */
-#define MAX_K           150
+#define MAX_K           1500
 #define MAX_ATOMS	 10
 #define MAX_ATNAME	 10
 #define MAX_ATNR	250 
