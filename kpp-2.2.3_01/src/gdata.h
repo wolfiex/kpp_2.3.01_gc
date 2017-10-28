@@ -47,11 +47,11 @@
 #define MAX_ATOMS	 10
 #define MAX_ATNAME	 10
 #define MAX_ATNR	250 
-#define MAX_PATH        120
+#define MAX_PATH        220
 #define MAX_FILES	 20
 #define MAX_FAMILIES	 50
 #define MAX_MEMBERS 	150
-#define MAX_EQNLEN      200
+#define MAX_EQNLEN      200000
 
 #define NO_CODE 	-1
 #define max( x, y ) (x) > (y) ? (x) : (y)

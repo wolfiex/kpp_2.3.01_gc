@@ -569,17 +569,17 @@ int i,j;
 		          "\n        kpp <equations file> [output file]\n");
   }
 
-  printf("\nThis is KPP-%s.\n", KPP_VERSION);
+  printf("\033[94m\nThis is KPP-%s.\n\033[0m\n", KPP_VERSION);
 
-  printf("\nKPP is parsing the equation file.");
+  printf("\033[34m\nKPP is parsing the equation file.\033[0m\n");
   status = ParseEquationFile( argv[1] );
 
-  if( status ) FatalError(2,"%d errors and %d warnings encountered.", 
+  if( status ) FatalError(2,"\033[94m\n%d errors and %d warnings encountered.\033[0m\n", 
                            nError, nWarning ); 
   /* Allocate some internal data structures */
   AllocStructArrays();
 
-  printf("\nKPP is computing Jacobian sparsity structure.");
+  printf("\033[34m\nKPP is computing Jacobian sparsity structure.\033[0m\n");
   ReorderSpecies( UNSORT );
   if (useReorder==1){
     BestSparsity(); 
@@ -590,13 +590,13 @@ int i,j;
 
   if( initNr == -1 ) initNr = VarNr;
 
-  printf("\nKPP is starting the code generation.");
+  printf("\033[34m\nKPP is starting the code generation.\033[0m\n");
   Generate( rootFileName );
   
-  printf("\nKPP is starting the code post-processing.");
+  printf("\033[34m\nKPP is starting the code post-processing.\033[0m\n");
   Postprocess( rootFileName );
   
-  printf("\n\nKPP has succesfully created the model \"%s\".\n\n",rootFileName);
+  printf("\033[94m\n\nKPP has succesfully created the model \"%s\".\n\033[0m\n",rootFileName);
 
   if( nError ) exit(4);
   if( nWarning ) exit(5);
