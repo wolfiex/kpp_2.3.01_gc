@@ -419,6 +419,7 @@ int flxind[MAX_EQN];
   InitDeclare( SPC_NAMES, SpcNr, (void*)snames );
 
   if (doFlux == 1) {
+    fprintf(stderr, "doFlux is 1\n");
     NewLines(1);
     j = 0;
     for (i = 0; i < SpcNr; i++) {
@@ -477,8 +478,8 @@ int flxind[MAX_EQN];
   InitDeclare( SMASS, nmass, (void*)smass );
 
   if ( (bufeqn = (char*)malloc(MAX_EQNLEN*EqnNr+2))==NULL ) {
-    FatalError(-30,"GenerateMonitorData: Cannot allocate bufeqn (%d chars)", 
-                    MAX_EQNLEN*EqnNr);
+    FatalError(-30,"GenerateMonitorData: Cannot allocate bufeqn (%d chars) - MAX_EQN is %d, EqnNr is %d", 
+                    MAX_EQNLEN*EqnNr, MAX_EQNLEN, EqnNr);
   }
 
   p = bufeqn; 

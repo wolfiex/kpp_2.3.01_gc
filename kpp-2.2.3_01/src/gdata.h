@@ -35,6 +35,7 @@
 #define _GDATA_H_
 
 #include <stdio.h>
+#include <stdint.h>
 
 #define MAX_EQN         200000
 #define MAX_SPECIES     10000
@@ -134,7 +135,8 @@ typedef struct {
 
 extern int SpeciesNr;
 extern int FamilyNr;
-extern int EqnNr;
+//extern int EqnNr;
+extern uint32_t EqnNr;
 extern int SpcNr;
 extern int AtomNr;
 extern int VarNr;
